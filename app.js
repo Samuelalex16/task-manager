@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express();
 const tasks = require('./routes/tasks')
+const connectDB = require('./db/connect')
 
 app.use(express.urlencoded({ extended: false }))
 
@@ -15,4 +16,12 @@ app.use('/api/v1/tasks', tasks)
 
 const port = 3000
 
-app.listen(port, console.log(`Server listening to ${port}`))
+const start = async() => {
+    try {
+        await connectDB()
+        app.listen(port, console.log(`Server listening to ${port}`))
+    } catch (error) {
+        console.log(err)
+    }
+}
+start()
