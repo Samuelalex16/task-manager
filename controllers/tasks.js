@@ -4,6 +4,7 @@ const getAllTasks = (req, res) => {
 
 const createTasks = (req, res) => {
     //res.send("creating")
+    console.log(req.body);
     return res.json(req.body)
 }
 
