@@ -5,6 +5,7 @@ const connectDB = require('./db/connect')
 require('dotenv').config()
 app.use(express.urlencoded({ extended: false }))
 
+app.use(express.static('./public'))
 app.use(express.json())
 
 //routes
